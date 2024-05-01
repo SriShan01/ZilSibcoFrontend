@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, IconButton, InputAdornment, Typography } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
-import { login } from './authActions'; // Importing login action creator directly
+import { login } from './authActions';
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -28,13 +28,13 @@ const LoginForm = () => {
       branch: Yup.string().required('Required'),
     }),
     onSubmit: values => {
-      login(values); // Directly calling login action creator
+      login(values);
     },
   });
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="bg-white shadow-md rounded px-8 pt-8 pb-12 w-96">
+    <div className="flex justify-center items-center h-screen bg-green-200">
+      <div className="bg-white shadow-md rounded px-8 pt-8 pb-12 w-96 min-h-50">
         <Typography variant="h5" align="center" gutterBottom>
           Login
         </Typography>
@@ -98,9 +98,11 @@ const LoginForm = () => {
               ))}
             </Select>
           </FormControl>
-          <Button fullWidth variant="contained" color="primary" type="submit">
-            Login
-          </Button>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button variant="contained" color="primary" type="submit" style={{ width: '50%' }}>
+              Login
+            </Button>
+          </div>
         </form>
       </div>
     </div>

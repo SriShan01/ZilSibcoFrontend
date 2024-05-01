@@ -1,16 +1,19 @@
 // import { useState } from 'react'
-import './App.css'
-import LoginForm from './components/LoginForm'
+import './App.css';
+// import LoginForm from './components/LoginForm';
+// import SideBar from './components/SideBar';
+// import SearchBar from './components/SearchBar';
+// import EditButton from './components/EditButton';
+// import SaveButton from './components/SaveButton';
+// import Pagination from './components/Pagination';
 
 function App() {
 
   return (
     <>
-      <div>
-        <LoginForm/>
-      </div>
+    hi
     </>
   )
 }
 
-export default App
+export default App;

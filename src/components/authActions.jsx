@@ -20,13 +20,11 @@ export const loginFailure = (error) => ({
   payload: error,
 });
 
-// Async Action Creator
 export const login = (credentials) => {
   return async (dispatch) => {
     dispatch(loginRequest());
 
     try {
-      // Assuming you have an API endpoint for login
       const response = await fetch('your_api_endpoint/login', {
         method: 'POST',
         headers: {
