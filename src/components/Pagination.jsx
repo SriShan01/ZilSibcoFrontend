@@ -82,7 +82,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           </MenuItem>
         ))}
       </Select>
-      <span>out of {totalPages}</span>
+      <span>page </span>
+      <Box>{currentPage}</Box>
+      <span> of {totalPages}</span>
     </div>
   );
 };
