@@ -141,7 +141,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 
-// Import your custom icons
 import dashboardIcon from '../assets/images/sidePaneIcons/Dashboard.png';
 import locationIcon from '../assets/images/sidePaneIcons/Location.png';
 import inventoryIcon from '../assets/images/sidePaneIcons/Inventory.png';
