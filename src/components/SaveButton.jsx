@@ -1,16 +1,20 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import { withStyles } from '@mui/styles';
+import { grey } from '@mui/material/colors';
 
-// Define custom styles
 const styles = {
   root: {
-    backgroundColor: '#ffffff',
-    borderRadius: '8px',
-    border: '2px solid #9ccc65',
-    color: '#9ccc65',
+    position: 'absolute',
+    backgroundColor: '#9ABEA1',
+    color: '#ffffff',
+    width: '115px',
+    height: '40px',
+    borderRadius: '10px 0px 0px 0px',
+    border: '1px solid #9ABEA1',
+    fontWeight: 700,
     '&:hover': {
-      backgroundColor: '#f0f0f0',
+      backgroundColor: grey[300],
     },
   },
 };
