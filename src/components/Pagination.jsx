@@ -1,92 +1,60 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { IconButton, Box, Select, MenuItem } from '@material-ui/core';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: theme.spacing(2),
+import React from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
+ 
+const StyledPagination = styled(Pagination)({
+  "& .MuiPaginationItem-root": {
+    color: "white",
+    border: "1px solid #ccc",
+    borderRadius: "1px",
+    margin: "0 2px",
+    minWidth: "32px",
+    minHeight: "32px",
+    backgroundColor: "#94B0BE",
   },
-  box: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '20px',
-    height: '20px',
-    border: '1px solid #ccc',
-    margin: '0 2px',
-    cursor: 'pointer',
-    fontSize: '10px',
+  "& .MuiPaginationItem-page.Mui-selected": {
+    backgroundColor: "#EF7660",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "#FF5449",
+    },
   },
-  arrowBox: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '24px',
-    height: '24px',
-    border: '1px solid #ccc',
-    margin: '0 2px',
-    cursor: 'pointer',
+  "& .MuiPaginationItem-ellipsis": {
+    color: "#666",
   },
-}));
-
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const classes = useStyles();
-
-  const handlePageChange = (event) => {
-    const newPage = parseInt(event.target.value);
-    onPageChange(newPage);
+});
+ 
+export const PaginationPaneMultiplePg = ({
+  handlePageChange,
+  currentPage,
+  totalPages,
+}) => {
+  const handleChange = (event, value) => {
+    handlePageChange(value);
   };
-
+ 
   return (
-    <div className={classes.root}>
-      <Box className={classes.arrowBox}>
-        <IconButton
-          disabled={currentPage === 1}
-          onClick={() => onPageChange(currentPage - 1)}
-        >
-          <ArrowLeftIcon fontSize="small" />
-        </IconButton>
-      </Box>
-      {[...Array(totalPages).keys()].map((page) => (
-        <Box
-          key={page + 1}
-          className={classes.box}
-          bgcolor={currentPage === page + 1 ? 'primary.main' : 'inherit'}
-          color={currentPage === page + 1 ? 'white' : 'inherit'}
-          onClick={() => onPageChange(page + 1)}
-        >
-          {page + 1}
-        </Box>
-      ))}
-      <Box className={classes.arrowBox}>
-        <IconButton
-          disabled={currentPage === totalPages}
-          onClick={() => onPageChange(currentPage + 1)}
-        >
-          <ArrowRightIcon fontSize="small" />
-        </IconButton>
-      </Box>
-      <Select
-        value={currentPage}
-        onChange={handlePageChange}
+    <Stack direction="row" spacing={2}>
+      {/* <FaChevronLeft
+        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className="cursor-pointer"
+      /> */}
+      <StyledPagination
+        count={totalPages}
+        page={currentPage}
+        onChange={handleChange}
+        variant="outlined"
+        shape="rounded"
         size="small"
-      >
-        {[...Array(totalPages).keys()].map((page) => (
-          <MenuItem key={page + 1} value={page + 1}>
-            {page + 1}
-          </MenuItem>
-        ))}
-      </Select>
-      <span>page </span>
-      <Box>{currentPage}</Box>
-      <span> of {totalPages}</span>
-    </div>
+      />
+      {/* <FaChevronRight
+        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className="cursor-pointer"
+      /> */}
+    </Stack>
   );
 };
-
-export default Pagination;
