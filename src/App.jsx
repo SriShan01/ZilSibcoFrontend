@@ -7,11 +7,15 @@ import './App.css';
 // import SaveButton from './components/SaveButton';
 // import Pagination from './components/Pagination';
 // import FormComponent from './components/FormComponent';
+import { PaginationPaneMultiplePg } from 'components/Pagination';
 
 
 function App() {
 
   return (
+    <>
+    <PaginationPaneMultiplePg/>
+    </>
   )
 }
 
